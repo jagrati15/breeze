@@ -4,7 +4,7 @@ set -e
 
 path=`dirname $0`
 
-kubernetes_version=1.19.4
+kubernetes_version=manifest-master
 harbor_version=2.1.1
 docker_version=19.03.13
 haproxy_version=2.0.0
@@ -33,7 +33,7 @@ mv ${path}/prometheus-playbook/version ${path}/prometheus-playbook/Kube-Promethe
 mv ${path}/istio-playbook/version ${path}/istio-playbook/v${istio_version}
 mv ${path}/elasticcloud-playbook/version ${path}/elasticcloud-playbook/v${elastic_cloud_version}
 
-docker run --rm --name=kubeadm-version ab1997/local:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
+docker run --rm --name=kubeadm-version ab1997/kubeadm-version:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
 
 etcd_version=`cat ${path}/k8s-images-list.txt |grep etcd |awk -F ':' '{print $2}'`
 mv etcd-playbook/version-by-kubeadm etcd-playbook/${etcd_version}
