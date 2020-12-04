@@ -4,7 +4,7 @@ set -e
 
 path=`dirname $0`
 
-kubernetes_version=1.19.5-arm64
+kubernetes_version=master
 harbor_version=2.1.1
 docker_version=19.03.13
 haproxy_version=2.0.0
@@ -33,7 +33,8 @@ mv ${path}/prometheus-playbook/version ${path}/prometheus-playbook/Kube-Promethe
 mv ${path}/istio-playbook/version ${path}/istio-playbook/v${istio_version}
 mv ${path}/elasticcloud-playbook/version ${path}/elasticcloud-playbook/v${elastic_cloud_version}
 
-docker run --rm --name=kubeadm-version sakshi9715/kubeadm-version:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
+#docker run --rm --name=kubeadm-version sakshi9715/kubeadm-version:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
+docker run --rm --name=kubeadm-version wise2c/kubeadm-version:${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
 echo "DONE"
 
 etcd_version=`cat ${path}/k8s-images-list.txt |grep etcd |awk -F ':' '{print $2}'`
