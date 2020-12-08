@@ -1,5 +1,7 @@
 sudo: required
-
+language: go
+go:
+  - 1.12.6
 arch:
   - arm64
 services:
