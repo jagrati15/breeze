@@ -28,7 +28,7 @@ if [[ $(uname -m) == "aarch64" ]]; then
   pwd
   echo $HOME
   cd cfssl
-  sudo make install && cd bin
+  make install && cd bin
   chmod +x cfssl cfssljson cfssl-certinfo
   tar zcvf ${path}/file/cfssl-tools.tar.gz cfssl cfssl-certinfo cfssljson
   cd ../..
