@@ -157,7 +157,7 @@ bzip2 -z --best ${path}/file/contour-demo.tar
 
 echo "=== contour and envoyproxy images are saved successfully ==="
 
-echo "=== download cfssl tools ==="
+echo "===11111111111111 download cfssl tools111111111111111 ==="
 export CFSSL_URL=https://pkg.cfssl.org/R1.2
 curl -L -o cfssl ${CFSSL_URL}/cfssl_linux-amd64
 curl -L -o cfssljson ${CFSSL_URL}/cfssljson_linux-amd64
