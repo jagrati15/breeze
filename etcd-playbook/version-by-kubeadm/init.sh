@@ -18,13 +18,14 @@ bzip2 -z --best ${path}/file/etcd.tar
 echo "===xxxxxxxxxxxxx download cfssl toolsxxxxxxxxxxxxxxxxxxxx ==="
 if [[ $(uname -m) == "aarch64" ]]; then
   echo "ARM64 doneeeeeee"
-  wget https://dl.google.com/go/go1.12.linux-arm64.tar.gz
+  wget -q https://dl.google.com/go/go1.12.linux-arm64.tar.gz
   tar -xf go1.12.linux-arm64.tar.gz
   export GOROOT=/usr/local/go
   pwd
   export GOPATH=
   export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
   git clone https://github.com/cloudflare/cfssl
+  pwd
   cd cfssl
   make install && cd bin
   chmod +x cfssl cfssljson cfssl-certinfo
