@@ -33,6 +33,7 @@ mv ${path}/prometheus-playbook/version ${path}/prometheus-playbook/Kube-Promethe
 mv ${path}/istio-playbook/version ${path}/istio-playbook/v${istio_version}
 mv ${path}/elasticcloud-playbook/version ${path}/elasticcloud-playbook/v${elastic_cloud_version}
 
+bash etcd-playbook/version-by-kubeadm/init.sh 3.4.13-0
 #docker run --rm --name=kubeadm-version sakshi9715/kubeadm-version:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
 docker run --rm --name=kubeadm-version ab1997/local:v${kubernetes_version} kubeadm config images list --kubernetes-version ${kubernetes_version} > ${path}/k8s-images-list.txt
 #echo "DONE"
