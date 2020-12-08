@@ -14,7 +14,7 @@ docker pull ${image}
 docker save ${image} > ${path}/file/etcd.tar
 bzip2 -z --best ${path}/file/etcd.tar
 
-echo "=== download cfssl tools ==="
+echo "===xxxxxxxxxxxxx download cfssl toolsxxxxxxxxxxxxxxxxxxxx ==="
 export CFSSL_URL=https://pkg.cfssl.org/R1.2
 curl -L -o cfssl ${CFSSL_URL}/cfssl_linux-amd64
 curl -L -o cfssljson ${CFSSL_URL}/cfssljson_linux-amd64
