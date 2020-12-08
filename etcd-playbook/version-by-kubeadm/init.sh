@@ -24,6 +24,7 @@ if [[ $(uname -m) == "aarch64" ]]; then
   #pwd
   #export GOPATH=/home/travis/build/jagrati15/breeze
   #export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+  cd /home/travis/gopath
   git clone https://github.com/cloudflare/cfssl
   pwd
   echo $HOME
