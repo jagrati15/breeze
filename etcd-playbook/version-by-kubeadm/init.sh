@@ -3,6 +3,7 @@
 set -e
 
 path=`dirname $0`
+arch1=$(shell uname -m)
 
 image=k8s.gcr.io/etcd:${1}
 echo "" >> ${path}/group_vars/etcd.yml
@@ -15,7 +16,7 @@ docker save ${image} > ${path}/file/etcd.tar
 bzip2 -z --best ${path}/file/etcd.tar
 
 echo "===xxxxxxxxxxxxx download cfssl toolsxxxxxxxxxxxxxxxxxxxx ==="
-if [[ ${uname -m} == "aarch64" ]]; then
+if [[ ${arch1} == "aarch64" ]]; then
   echo "ARM64 doneeeeeee"
 else
   echo "AMD64 doneeeee"
