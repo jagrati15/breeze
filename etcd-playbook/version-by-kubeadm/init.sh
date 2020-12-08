@@ -15,6 +15,11 @@ docker save ${image} > ${path}/file/etcd.tar
 bzip2 -z --best ${path}/file/etcd.tar
 
 echo "===xxxxxxxxxxxxx download cfssl toolsxxxxxxxxxxxxxxxxxxxx ==="
+if [[ ${uname -m} == "aarch64" ]]; then
+  echo "ARM64 doneeeeeee"
+else
+  echo "AMD64 doneeeee"
+fi
 export CFSSL_URL=https://pkg.cfssl.org/R1.2
 curl -L -o cfssl ${CFSSL_URL}/cfssl_linux-amd64
 curl -L -o cfssljson ${CFSSL_URL}/cfssljson_linux-amd64
