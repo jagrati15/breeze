@@ -3,7 +3,7 @@
 set -e
 
 path=`dirname $0`
-arch1=$(shell uname -m)
+arch1=$(uname -m)
 
 image=k8s.gcr.io/etcd:${1}
 echo "" >> ${path}/group_vars/etcd.yml
