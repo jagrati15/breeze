@@ -22,10 +22,11 @@ if [[ $(uname -m) == "aarch64" ]]; then
   tar -xf go1.12.linux-arm64.tar.gz
   export GOROOT=/usr/local/go
   pwd
-  export GOPATH=
+  export GOPATH=/home/travis/build/jagrati15/breeze
   export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
   git clone https://github.com/cloudflare/cfssl
   pwd
+  echo $HOME
   cd cfssl
   make install && cd bin
   chmod +x cfssl cfssljson cfssl-certinfo
